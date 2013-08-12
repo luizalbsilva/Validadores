@@ -4,13 +4,13 @@ import br.com.tamanhofamilia.validadores.Validador;
 
 public class ValidadoPoupancaBradesco implements Validador {
 
-	public boolean validaDocumentoCompleto(String documentoCompleto) {
-		documentoCompleto = documentoCompleto.trim();
-		return digitosVerificadores(documentoCompleto.substring(0, documentoCompleto.length()-1)).equals(""+documentoCompleto.charAt(documentoCompleto.length()-1));
+	public boolean validaDocumentoCompleto(String numPoupancaCompleto) {
+		numPoupancaCompleto = numPoupancaCompleto.trim();
+		return digitosVerificadores(numPoupancaCompleto.substring(0, numPoupancaCompleto.length()-1)).equals(""+numPoupancaCompleto.charAt(numPoupancaCompleto.length()-1));
 	}
 
-	public String digitosVerificadores(String documento) {
-		String all = documento.replaceAll("\\D", "");
+	public String digitosVerificadores(String numPoupanca) {
+		String all = numPoupanca.replaceAll("\\D", "");
 		int acum = 0;
 		for(int x=0; x<all.length(); x++)
 			acum += ((int)(all.charAt(x)-'0')) * ((all.length()-1-x)%6+2);

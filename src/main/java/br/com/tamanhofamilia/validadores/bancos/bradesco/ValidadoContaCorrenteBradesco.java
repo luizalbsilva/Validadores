@@ -4,13 +4,13 @@ import br.com.tamanhofamilia.validadores.Validador;
 
 public class ValidadoContaCorrenteBradesco implements Validador {
 
-	public boolean validaDocumentoCompleto(String documentoCompleto) {
-		documentoCompleto = documentoCompleto.trim();
-		return digitosVerificadores(documentoCompleto.substring(0, documentoCompleto.length()-1)).equals(""+documentoCompleto.charAt(documentoCompleto.length()-1));
+	public boolean validaDocumentoCompleto(String numCCCompleta) {
+		numCCCompleta = numCCCompleta.trim();
+		return digitosVerificadores(numCCCompleta.substring(0, numCCCompleta.length()-1)).equals(""+numCCCompleta.charAt(numCCCompleta.length()-1));
 	}
 
-	public String digitosVerificadores(String documento) {
-		String all = documento.replaceAll("\\D", "");
+	public String digitosVerificadores(String numeroCC) {
+		String all = numeroCC.replaceAll("\\D", "");
 		int acum = 0;
 		for(int x=0; x<all.length(); x++)
 			acum += ((int)(all.charAt(x)-'0')) * ((all.length()-1-x)%6+2);
