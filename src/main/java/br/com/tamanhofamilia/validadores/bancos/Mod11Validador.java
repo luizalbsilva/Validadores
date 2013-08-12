@@ -10,7 +10,7 @@ public abstract class Mod11Validador implements Validador{
 
 	public Mod11Validador(int limiteInf, int limiteSup, String d10, String d11) {
 		this.limiteInf = limiteInf;
-		this.limiteSup = limiteSup;
+		this.limiteSup = limiteSup-limiteInf+1;
 		this.d10 = d10;
 		this.d11 = d11;
 	}
